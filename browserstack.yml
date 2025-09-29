@@ -1,0 +1,28 @@
+envFile: ./.env-browserstack
+userName: ${BROWSERSTACK_USERNAME}
+accessKey: ${BROWSERSTACK_ACCESS_KEY}
+
+platforms:
+  - browserName: Safari
+    osVersion: 18.6
+    deviceName: iPhone 16
+
+  - deviceName: Samsung Galaxy S24
+    browserName: chrome
+    osVersion: 14
+
+browserstack:
+  buildName: 'testBuild'
+  projectName: buildo-nextjs-browserstack
+  # debug: true
+  # networkLogs: true
+  local: false
+  source: 'playwright:1.53.0'
+
+  networkLogsOptions:
+    captureContent: true
+
+# Test settings
+testMatch: '**/*.spec.ts'
+retries: 0
+workers: 1
